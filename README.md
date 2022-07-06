@@ -1,5 +1,5 @@
 Implemented in Python, using PyTorch and scikit-learn, I created a class for classification purpose.
-After this code production, the architecture has made accuracy of 84%.
+After this code production, the architecture has made accuracy of 84.69%.
 I ran the code on Google Colab's GPU.
 This was for introduction to deep learning course final project.
 
