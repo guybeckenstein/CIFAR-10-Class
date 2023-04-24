@@ -24,20 +24,20 @@ plt.rcParams.update({'font.size': 12})
 test = unittest.TestCase()
 torch.manual_seed(seed)
 
-def plot_exp_results(filename_pattern, results_dir='results'):
+def plot_exp_results(filename_pattern, results_dir='results') -> None:
     fig = None
     result_files = glob.glob(os.path.join(results_dir, filename_pattern))
     result_files.sort()
     if len(result_files) == 0:
         print(f'No results found for pattern {filename_pattern}.', file=sys.stderr)
-        return
-    for filepath in result_files:
-        m = re.match('exp\d_(\d_)?(.*)\.json', os.path.basename(filepath))
-        cfg, fit_res = load_experiment(filepath)
-        fig, axes = plot_fit(fit_res, fig, legend=m[2],log_loss=True)
-    del cfg['filters_per_layer']
-    del cfg['layers_per_block']
-    print('common config: ', cfg)
+    else:
+        for filepath in result_files:
+            m = re.match('exp\d_(\d_)?(.*)\.json', os.path.basename(filepath))
+            cfg, fit_res = load_experiment(filepath)
+            fig, axes = plot_fit(fit_res, fig, legend=m[2],log_loss=True)
+        del cfg['filters_per_layer']
+        del cfg['layers_per_block']
+        print('common config: ', cfg)
     
 data_dir = os.path.expanduser('~/.pytorch-datasets')
 ds_train = torchvision.datasets.CIFAR10(root=data_dir, download=True, train=True, transform=tvtf.ToTensor())
