@@ -1,7 +1,7 @@
 ### This is a deep learning material ###
 
-Implemented in Python, using PyTorch and scikit-learn, I created a class for classification purpose.
-After this code production, the architecture has made accuracy of 84.69%.
+Implemented in Python, used PyTorch and scikit-learn packages. I created a class for classification purpose (the main goal of this project).
+After training the machine over CIFAR-10 training set and validation set, the architecture has made accuracy of 84.69% on the test set.
 I ran the code on Google Colab's GPU.
 This was for introduction to deep learning course final project.
 
